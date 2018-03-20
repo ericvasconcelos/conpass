@@ -1,19 +1,30 @@
 
-export const changeDescription = event => ({
-  type: 'DESCRIPTION_CHANGED',
-  payload: event.target.value
-})
+export const deleteHotspot = e => {
+  // let oldHotspots = this.state.hotspots;
+  // let newHotspots = oldHotspots.filter(item => item.id !== id)
 
-export const search = () => {
   return {
-    type: 'TODO_SEARCHED', payload: 'Description'
+    type: 'DELETE_HOTSPOT',
+    payload: event.target.value
   }
 }
-export const clear = () => {
-  return [
-    {
-      type: 'TODO_CLEAR'
-    },
-    search()
-  ]
+
+export const addHotspot = e => {
+
+
+  const hotspot = {
+    id: Math.ceil(Math.random() * 10000),
+    name: 'Hotspots #',
+    style: {
+      top: e.nativeEvent.clientY,
+      left: e.nativeEvent.clientX
+    }
+  }
+
+  console.log(hotspot)
+
+  return {
+    type: 'ADD_HOTSPOT',
+    payload: [hotspot]
+  }
 }

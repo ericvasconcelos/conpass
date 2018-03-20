@@ -14,6 +14,32 @@
   border-radius: 20px;
   text-align: center;
   font-weight: 300;
+  cursor: pointer;
+}
+
+.hotspot__element {
+  position: absolute;
+  z-index: 9999999;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border-radius: 50%;
+  border: white;
+  background-color: red;
+  opacity: 0.6;
+
+  &:after {
+    content: '';
+    display: block;
+    position: relative;
+    top: -4px;
+    left: -4px;
+    width: 24px;
+    height: 24px;
+    border: 2px solid red;
+    border-radius: 50%;
+  }
 }
 
 .hotspots {
@@ -59,4 +85,5 @@
   float: right;
   color: blue;
   text-decoration: underline;
+  cursor: pointer;
 }
