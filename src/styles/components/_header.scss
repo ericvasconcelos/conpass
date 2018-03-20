@@ -1,0 +1,18 @@
+.header {
+  display: block;
+  height: 90px;
+  border-bottom: 1px solid $light-gray;
+}
+
+.header__logo {
+  display: block;
+  float: left;
+  height: 40px;
+  margin: 25px 70px 0 20px;
+
+  img {
+    display: block;
+    width: auto;
+    height: 100%;
+  }
+}
