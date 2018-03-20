@@ -4,10 +4,12 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch(action.type) {
-    case 'DELETE_HOTSPOT':
-      return { ...state, hotspots: action.payload }
+    case 'LOAD_HOTSPOTS':
+      return { hotspots: action.payload }
     case 'ADD_HOTSPOT':
-      return { ...state, hotspots: action.payload }
+      return { hotspots: action.payload }
+    case 'DELETE_HOTSPOT':
+      return { hotspots: action.payload }
     default:
       return state
   }

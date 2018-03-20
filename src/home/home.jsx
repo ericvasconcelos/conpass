@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { deleteHotspot } from './homeActions'
+import { loadHotspots, deleteHotspot } from './homeActions'
 
 class Home extends Component {
   constructor(props) {
     super(props)
+  }
+
+  componentWillMount() {
+    this.props.loadHotspots()
   }
 
   createHotspot() {
@@ -46,7 +50,8 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({hotspots: state.home.hotspots})
-const mapDispatchToProps = dispatch => bindActionCreators({ 
+const mapDispatchToProps = dispatch => bindActionCreators({
+  loadHotspots,
   deleteHotspot
 }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
