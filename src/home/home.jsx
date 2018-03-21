@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { loadHotspots, deleteHotspot } from './homeActions'
+import { loadHotspots, activeCreateHotspot, deleteHotspot } from './homeActions'
 
 class Home extends Component {
   constructor(props) {
@@ -10,10 +10,6 @@ class Home extends Component {
 
   componentWillMount() {
     this.props.loadHotspots()
-  }
-
-  createHotspot() {
-    console.log('creating...')
   }
 
   renderHotsPotsList() {
@@ -42,7 +38,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
-        <a className="home__btn">Create Hotspot</a>
+        <a className="home__btn" onClick={this.props.activeCreateHotspot}>Create Hotspot</a>
         {this.renderHotsPotsList()}
       </div>
     )
@@ -52,6 +48,7 @@ class Home extends Component {
 const mapStateToProps = state => ({hotspots: state.home.hotspots})
 const mapDispatchToProps = dispatch => bindActionCreators({
   loadHotspots,
+  activeCreateHotspot,
   deleteHotspot
 }, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

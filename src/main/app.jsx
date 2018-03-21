@@ -16,13 +16,18 @@ class App extends Component {
     this.props.loadHotspots()
   }
 
+  handleMouseHover(e) {
+    console.log(e.nativeEvent)
+  }
+
   render() {
     let hotspots = this.props.hotspots;
 
-    console.log(hotspots)
-
     return (
-      <div className="container general" onClick={this.props.addHotspot}>
+      <div
+        className="container general"
+        onClick={this.props.addHotspot}
+        onMouseEnter={this.handleMouseHover} >
         {
           hotspots.map((element, key) => {
             return (
