@@ -2,6 +2,8 @@
 
 A aplicação foi criada usando React, Redux, ES6, babel, Sass e webpack.
 
+--- [Demo](http://2re.com.br/conpass/#/) ---
+
 ## Instalar
 
 ```npm
