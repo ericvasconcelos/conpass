@@ -12,7 +12,7 @@
 }
 
 .menu__item__link {
-  @include transition(.4s linear all);
+  @include transition(color .4s linear);
 
   &:hover {
     color: $black;

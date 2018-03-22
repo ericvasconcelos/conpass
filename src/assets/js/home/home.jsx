@@ -46,9 +46,11 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({hotspots: state.home.hotspots})
+
 const mapDispatchToProps = dispatch => bindActionCreators({
   loadHotspots,
   activeCreateHotspot,
   deleteHotspot
 }, dispatch)
+
 export default connect(mapStateToProps, mapDispatchToProps)(Home)

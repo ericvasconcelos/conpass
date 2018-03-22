@@ -16,18 +16,13 @@ class App extends Component {
     this.props.loadHotspots()
   }
 
-  handleMouseHover(e) {
-    console.log(e.nativeEvent)
-  }
-
   render() {
     let hotspots = this.props.hotspots;
 
     return (
       <div
         className="container general"
-        onClick={this.props.addHotspot}
-        onMouseEnter={this.handleMouseHover} >
+        onClick={this.props.addHotspot} >
         {
           hotspots.map((element, key) => {
             return (
@@ -45,8 +40,10 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({hotspots: state.home.hotspots})
+
 const mapDispatchToProps = dispatch => bindActionCreators({ 
   loadHotspots,
   addHotspot
 }, dispatch)
+
 export default connect(mapStateToProps, mapDispatchToProps)(App)
