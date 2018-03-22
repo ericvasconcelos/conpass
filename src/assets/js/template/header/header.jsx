@@ -1,4 +1,4 @@
-import logo from '../../assets/images/conpass.png'
+import logo from '../../../../assets/media/conpass.png'
 
 import React from 'react'
 import Menu from '../menu/menu'
