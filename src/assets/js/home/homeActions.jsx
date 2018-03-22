@@ -4,14 +4,12 @@ const styleHoverElement = (event) => {
   event.stopPropagation()
   const target = event.target
   target.style.border = "2px solid red"
-  target.classList.add('notransition')
 }
 
 const removeStyleHoverElement = (event) => {
   event.stopPropagation()
   const target = event.target
   target.style.border = ""
-  target.classList.remove('notransition')
 }
 
 
@@ -47,17 +45,23 @@ export const addHotspot = e => {
     
     if (allowCreate) {
       let hotspotList = JSON.parse(localStorage.getItem("hotspots")) || []
-
+      const native = e.nativeEvent;
       const hotspot = {
         id: Math.ceil(Math.random() * 10000),
         name: 'Hotspots #',
+        element: {
+          id: native.srcElement.id,
+          class: native.srcElement.class,
+          tagName: native.srcElement.tagName,
+          outerHTML: native.srcElement.outerHTML,
+          clientY: native.clientY,
+          clientX: native.clientX
+        },
         style: {
-          top: e.nativeEvent.clientY,
-          left: e.nativeEvent.clientX
+          top: native.clientY,
+          left: native.clientX
         }
       }
-
-      console.log(e.nativeEvent, e.target)
 
       hotspotList.push(hotspot)
       localStorage.setItem("hotspots", JSON.stringify(hotspotList))
